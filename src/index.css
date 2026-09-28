@@ -100,6 +100,13 @@ html, body {
   box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
 }
 
+.btn-text-short {
+  display: none;
+}
+.btn-text-full {
+  display: inline;
+}
+
 /* Main Cabinet Wrapper */
 .arcade-cabinet {
   position: relative;
@@ -443,11 +450,11 @@ html, body {
    GAME BOARD & BEZEL
    ========================================================================== */
 
-.board-wrapper {
+.arcade-cabinet .board-wrapper {
   position: relative;
 }
 
-.board-bezel {
+.arcade-cabinet .board-bezel {
   position: relative;
   background: linear-gradient(180deg, #1c233c 0%, #0d1222 100%);
   padding: 10px;
@@ -460,7 +467,7 @@ html, body {
     inset 0 -2px 6px rgba(0, 0, 0, 0.8);
 }
 
-.board {
+.arcade-cabinet .board {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -474,12 +481,12 @@ html, body {
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.95);
 }
 
-.row {
+.arcade-cabinet .row {
   display: flex;
   height: var(--cell-size);
 }
 
-.row-clearing {
+.arcade-cabinet .row-clearing {
   position: relative;
   z-index: 10;
 }
@@ -488,7 +495,7 @@ html, body {
    CELLS & PIECES
    ========================================================================== */
 
-.cell {
+.arcade-cabinet .cell {
   width: var(--cell-size);
   height: var(--cell-size);
   box-sizing: border-box;
@@ -496,13 +503,13 @@ html, body {
 }
 
 /* Empty Cell */
-.cell.empty {
+.arcade-cabinet .cell.empty {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 /* Solid Block */
-.cell.block {
+.arcade-cabinet .cell.block {
   border-radius: 3px;
   box-shadow:
     inset 2px 2px 0 rgba(255, 255, 255, 0.5),
@@ -510,79 +517,79 @@ html, body {
 }
 
 /* Neon Colored Blocks with Glowing Shadow */
-.cell.block-I, .mini-cell.block-I {
+.arcade-cabinet .cell.block-I, .arcade-cabinet .mini-cell.block-I {
   background: linear-gradient(135deg, #80f4ff 0%, var(--c-i) 60%, #009cb0 100%);
   box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.6), inset -1px -1px 0 rgba(0, 0, 0, 0.5), 0 0 10px var(--c-i-glow);
 }
-.cell.block-J, .mini-cell.block-J {
+.arcade-cabinet .cell.block-J, .arcade-cabinet .mini-cell.block-J {
   background: linear-gradient(135deg, #7da7ff 0%, var(--c-j) 60%, #104bbb 100%);
   box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.6), inset -1px -1px 0 rgba(0, 0, 0, 0.5), 0 0 10px var(--c-j-glow);
 }
-.cell.block-L, .mini-cell.block-L {
+.arcade-cabinet .cell.block-L, .arcade-cabinet .mini-cell.block-L {
   background: linear-gradient(135deg, #ffba60 0%, var(--c-l) 60%, #c46800 100%);
   box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.6), inset -1px -1px 0 rgba(0, 0, 0, 0.5), 0 0 10px var(--c-l-glow);
 }
-.cell.block-O, .mini-cell.block-O {
+.arcade-cabinet .cell.block-O, .arcade-cabinet .mini-cell.block-O {
   background: linear-gradient(135deg, #ffec50 0%, var(--c-o) 60%, #bca100 100%);
   box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.6), inset -1px -1px 0 rgba(0, 0, 0, 0.5), 0 0 10px var(--c-o-glow);
 }
-.cell.block-S, .mini-cell.block-S {
+.arcade-cabinet .cell.block-S, .arcade-cabinet .mini-cell.block-S {
   background: linear-gradient(135deg, #6bf5b5 0%, var(--c-s) 60%, #009e4d 100%);
   box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.6), inset -1px -1px 0 rgba(0, 0, 0, 0.5), 0 0 10px var(--c-s-glow);
 }
-.cell.block-T, .mini-cell.block-T {
+.arcade-cabinet .cell.block-T, .arcade-cabinet .mini-cell.block-T {
   background: linear-gradient(135deg, #ed85ff 0%, var(--c-t) 60%, #8e00a8 100%);
   box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.6), inset -1px -1px 0 rgba(0, 0, 0, 0.5), 0 0 10px var(--c-t-glow);
 }
-.cell.block-Z, .mini-cell.block-Z {
+.arcade-cabinet .cell.block-Z, .arcade-cabinet .mini-cell.block-Z {
   background: linear-gradient(135deg, #ff667f 0%, var(--c-z) 60%, #ba000d 100%);
   box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.6), inset -1px -1px 0 rgba(0, 0, 0, 0.5), 0 0 10px var(--c-z-glow);
 }
 
 /* Ghost Piece Cells (Drop shadow projection) */
-.cell.ghost {
+.arcade-cabinet .cell.ghost {
   border-radius: 3px;
   background-color: rgba(255, 255, 255, 0.05);
   border: 1.5px dashed rgba(255, 255, 255, 0.4);
 }
-.cell.ghost-I {
+.arcade-cabinet .cell.ghost-I {
   border-color: var(--c-i);
   background-color: rgba(0, 229, 255, 0.12);
   box-shadow: inset 0 0 6px var(--c-i-glow);
 }
-.cell.ghost-J {
+.arcade-cabinet .cell.ghost-J {
   border-color: var(--c-j);
   background-color: rgba(41, 121, 255, 0.12);
   box-shadow: inset 0 0 6px var(--c-j-glow);
 }
-.cell.ghost-L {
+.arcade-cabinet .cell.ghost-L {
   border-color: var(--c-l);
   background-color: rgba(255, 145, 0, 0.12);
   box-shadow: inset 0 0 6px var(--c-l-glow);
 }
-.cell.ghost-O {
+.arcade-cabinet .cell.ghost-O {
   border-color: var(--c-o);
   background-color: rgba(255, 214, 0, 0.12);
   box-shadow: inset 0 0 6px var(--c-o-glow);
 }
-.cell.ghost-S {
+.arcade-cabinet .cell.ghost-S {
   border-color: var(--c-s);
   background-color: rgba(0, 230, 118, 0.12);
   box-shadow: inset 0 0 6px var(--c-s-glow);
 }
-.cell.ghost-T {
+.arcade-cabinet .cell.ghost-T {
   border-color: var(--c-t);
   background-color: rgba(213, 0, 249, 0.12);
   box-shadow: inset 0 0 6px var(--c-t-glow);
 }
-.cell.ghost-Z {
+.arcade-cabinet .cell.ghost-Z {
   border-color: var(--c-z);
   background-color: rgba(255, 23, 68, 0.12);
   box-shadow: inset 0 0 6px var(--c-z-glow);
 }
 
 /* Smooth Line-Clear Flash Animation */
-.cell.clearing {
+.arcade-cabinet .cell.clearing {
   background: #ffffff !important;
   box-shadow: 0 0 25px #ffffff, 0 0 45px var(--c-i) !important;
   border-radius: 2px;
@@ -607,24 +614,24 @@ html, body {
 }
 
 /* Mini Grid for Previews */
-.mini-grid {
+.arcade-cabinet .mini-grid {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.mini-row {
+.arcade-cabinet .mini-row {
   display: flex;
 }
 
-.mini-cell {
+.arcade-cabinet .mini-cell {
   width: var(--mini-cell-size);
   height: var(--mini-cell-size);
   box-sizing: border-box;
 }
 
-.mini-cell.empty-mini {
+.arcade-cabinet .mini-cell.empty-mini {
   background: transparent;
 }
 
@@ -911,33 +918,119 @@ kbd {
 }
 
 /* ==========================================================================
-   RESPONSIVE LAYOUT
+   RESPONSIVE LAYOUT (TABLET & MOBILE)
    ========================================================================== */
 
-@media (max-width: 768px) {
+/* 1. TABLET SCREENS (681px - 960px) */
+@media (min-width: 681px) and (max-width: 960px) {
+  :root {
+    --cell-size: clamp(18px, 2.7vh, 23px);
+    --mini-cell-size: 12px;
+  }
+
   .arcade-cabinet {
     height: 100vh;
-    padding: 8px 12px;
+    height: 100dvh;
+    min-height: 100vh;
     max-height: none;
-    border-radius: 0;
+    padding: 10px 16px;
+    border-radius: 12px;
+    overflow-x: hidden;
   }
 
-  .game-arena {
-    gap: 10px;
-  }
-
-  .arena-wing {
-    width: 120px;
-    gap: 8px;
-  }
-
-  :root {
-    --cell-size: clamp(16px, 3.2vh, 24px);
-    --mini-cell-size: 11px;
+  .arcade-header {
+    padding: 4px 6px 8px 6px;
   }
 
   .arcade-title {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+
+  .arcade-badge {
+    font-size: 0.6rem;
+    padding: 2px 6px;
+  }
+
+  .game-arena {
+    gap: clamp(10px, 1.8vw, 18px);
+    padding: 6px 0;
+  }
+
+  .arena-wing {
+    width: clamp(125px, 16vw, 150px);
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .arcade-card {
+    padding: 10px;
+  }
+
+  .card-title {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+  }
+
+  .stat-value {
+    font-size: 1.05rem;
+  }
+
+  .stat-item {
+    padding: 5px 8px;
+  }
+
+  .arcade-cabinet .board-bezel {
+    padding: 8px;
+    border-radius: 10px;
+  }
+
+  .touch-controls {
+    max-width: 480px;
+  }
+
+  .keyboard-shortcuts {
+    gap: 8px;
+  }
+
+  .shortcut-tag {
+    font-size: 0.7rem;
+  }
+}
+
+/* 2. MOBILE SCREENS (<= 680px) */
+@media (max-width: 680px) {
+  :root {
+    --cell-size: clamp(14px, 2.5vh, 20px);
+    --mini-cell-size: 11px;
+  }
+
+  .arcade-cabinet {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: 100%;
+    max-height: none;
+    padding: 6px 8px 8px 8px;
+    border-radius: 0;
+    overflow-x: hidden;
+    justify-content: space-between;
+  }
+
+  /* Header */
+  .arcade-header {
+    flex-wrap: wrap;
+    gap: 6px 8px;
+    padding: 2px 2px 6px 2px;
+    justify-content: space-between;
+  }
+
+  .logo-group {
+    gap: 8px;
+  }
+
+  .arcade-title {
+    font-size: 1.25rem;
     letter-spacing: 2px;
   }
 
@@ -945,17 +1038,393 @@ kbd {
     display: none;
   }
 
-  .keyboard-shortcuts {
-    display: none; /* Hide keyboard legend on mobile/small screens */
+  .header-actions {
+    gap: 5px;
+    flex-wrap: wrap;
   }
 
   .action-pill-btn {
-    padding: 5px 10px;
+    padding: 4px 8px;
     font-size: 0.65rem;
+    letter-spacing: 0.5px;
   }
 
-  .stat-value {
-    font-size: 0.95rem;
+  .action-icon-btn {
+    padding: 4px 8px;
+    font-size: 0.9rem;
+  }
+
+  .btn-text-full {
+    display: none;
+  }
+
+  .btn-text-short {
+    display: inline;
+  }
+
+  /* Main Arena: Clean Stacked Grid */
+  .game-arena {
+    display: grid;
+    grid-template-areas:
+      "hold score next"
+      "board board board";
+    grid-template-columns: minmax(66px, 78px) minmax(0, 1fr) minmax(66px, 78px);
+    gap: 6px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    align-items: stretch;
+    justify-items: center;
+    padding: 2px 0;
+  }
+
+  .arena-wing.left-wing,
+  .arena-wing.right-wing {
+    display: contents;
+  }
+
+  /* Top Info Row: Hold Card */
+  .hold-card {
+    grid-area: hold;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hold-card .card-header {
+    margin-bottom: 2px;
+    padding-bottom: 2px;
+    justify-content: center;
+  }
+
+  .hold-card .card-title {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+  }
+
+  .hold-card .shortcut-badge {
+    display: none;
+  }
+
+  .hold-card .preview-container {
+    min-height: 44px;
+    padding: 2px;
+    flex: 1;
+  }
+
+  .hold-empty-hint span {
+    font-size: 0.6rem;
+    letter-spacing: 0.5px;
+  }
+
+  .hold-card .card-footer-hint {
+    margin-top: 2px;
+    font-size: 0.55rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* Top Info Row: Scoreboard Status */
+  .scoreboard-card {
+    grid-area: score;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 4px 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .scoreboard-card .card-header {
+    display: none;
+  }
+
+  .scoreboard-card .stat-divider {
+    display: none;
+  }
+
+  .scoreboard-card .stats-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2px 4px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .scoreboard-card .stat-row {
+    display: contents;
+  }
+
+  .scoreboard-card .stat-item {
+    padding: 2px 3px;
+    align-items: center;
+    text-align: center;
+    border-radius: 4px;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .scoreboard-card .stat-label {
+    font-size: 0.52rem;
+    letter-spacing: 0.3px;
+    margin-bottom: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .scoreboard-card .stat-value {
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+
+  /* Top Info Row: Upcoming Next Card */
+  .upcoming-card {
+    grid-area: next;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .upcoming-card .card-header {
+    margin-bottom: 2px;
+    padding-bottom: 2px;
+    justify-content: center;
+  }
+
+  .upcoming-card .card-title {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+  }
+
+  .upcoming-card .upcoming-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .upcoming-card .upcoming-item {
+    padding: 2px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .upcoming-card .upcoming-item.sub-next {
+    display: none;
+  }
+
+  /* Center Board Section */
+  .arena-center {
+    grid-area: board;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .arcade-cabinet .board-bezel {
+    padding: 6px;
+    border-radius: 8px;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.12),
+      0 0 24px rgba(0, 229, 255, 0.2),
+      0 12px 30px rgba(0, 0, 0, 0.7);
+  }
+
+  .arcade-cabinet .board-overlay {
+    inset: 6px;
+    border-radius: 6px;
+  }
+
+  .arcade-cabinet .overlay-content {
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .arcade-cabinet .arcade-logo {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+  }
+
+  .arcade-cabinet .overlay-title {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
+
+  .arcade-cabinet .overlay-score-box {
+    padding: 6px 12px;
+  }
+
+  .arcade-cabinet .stat-number.highlight {
+    font-size: 1.5rem;
+  }
+
+  .arcade-cabinet .arcade-btn {
+    padding: 8px 20px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+
+  .arcade-cabinet .clear-toast {
+    font-size: 1.1rem;
+    padding: 6px 14px;
+    letter-spacing: 1.5px;
+  }
+
+  /* Touch Controls & Footer */
+  .arcade-footer {
+    padding-top: 4px;
+    margin-top: auto;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .controls-container {
+    gap: 4px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .touch-controls {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+  }
+
+  .touch-group {
+    display: flex;
+    gap: 3px;
+    min-width: 0;
+  }
+
+  .touch-btn {
+    min-width: 34px;
+    height: 38px;
+    padding: 0 4px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+  }
+
+  .touch-btn.drop-btn {
+    min-width: 48px;
+    padding: 0 4px;
+    font-size: 0.65rem;
+    letter-spacing: 0.3px;
+  }
+
+  .touch-btn.util-btn {
+    min-width: 36px;
+    padding: 0 2px;
+    font-size: 0.62rem;
+    letter-spacing: 0.3px;
+  }
+
+  .keyboard-shortcuts {
+    display: none;
+  }
+}
+
+/* 3. NARROW MOBILE SCREENS (<= 360px) */
+@media (max-width: 360px) {
+  :root {
+    --cell-size: clamp(12px, 2.3vh, 17px);
+    --mini-cell-size: 9px;
+  }
+
+  .game-arena {
+    grid-template-columns: minmax(60px, 72px) 1fr minmax(60px, 72px);
+    gap: 4px;
+  }
+
+  .touch-btn {
+    min-width: 29px;
+    height: 34px;
+    padding: 0 3px;
+    font-size: 0.75rem;
+  }
+
+  .touch-btn.drop-btn {
+    font-size: 0.58rem;
+  }
+
+  .touch-btn.util-btn {
+    font-size: 0.58rem;
+  }
+
+  .action-pill-btn {
+    padding: 3px 6px;
+    font-size: 0.58rem;
+  }
+}
+
+/* 4. SHORT LANDSCAPE (orientation: landscape and max-height: 520px) */
+@media (max-height: 520px) and (orientation: landscape) {
+  :root {
+    --cell-size: clamp(11px, 3.6vh, 16px);
+    --mini-cell-size: 10px;
+  }
+
+  .arcade-cabinet {
+    padding: 4px 8px;
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  .arcade-header {
+    padding: 2px 0 4px 0;
+  }
+
+  .arcade-title {
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+  }
+
+  .game-arena {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 2px 0;
+  }
+
+  .arena-wing.left-wing,
+  .arena-wing.right-wing {
+    display: flex;
+    width: 105px;
+    gap: 6px;
+  }
+
+  .upcoming-card .upcoming-item.sub-next {
+    display: none;
+  }
+
+  .touch-controls {
+    max-width: 400px;
+  }
+
+  .touch-btn {
+    height: 30px;
+    min-width: 32px;
   }
 }
 

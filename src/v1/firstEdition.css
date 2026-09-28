@@ -3,12 +3,13 @@
    ========================================================================== */
 
 .first-edition-root {
+  --v1-cell-size: 30px;
   width: 100%;
   min-height: 100vh;
   background-color: #ffffff;
   color: #000000;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  padding: 20px;
+  padding: 20px 16px;
   box-sizing: border-box;
 }
 
@@ -17,11 +18,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 650px;
+  max-width: 760px;
   margin: 0 auto 20px auto;
   padding-bottom: 10px;
   border-bottom: 1px solid #d1d5db;
   font-size: 14px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .first-edition-root .v1-title-label {
@@ -49,16 +52,19 @@
   background-color: #e5e7eb;
 }
 
-/* Original Raw Layout & Elements */
+/* Original Raw Layout & Elements - Perfectly Centered Grid */
 .first-edition-root .app {
   display: grid;
   grid-template-areas:
     ". title ."
-    ". game controls";
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 650px;
+    "spacer game controls";
+  grid-template-columns: minmax(120px, 1fr) auto minmax(120px, 1fr);
+  max-width: 760px;
   margin: 0 auto;
   align-items: start;
+  justify-content: center;
+  column-gap: 24px;
+  row-gap: 12px;
 }
 
 .first-edition-root h1 {
@@ -66,9 +72,10 @@
   grid-area: title;
   font-size: 2rem;
   color: #000000;
-  margin: 0 0 16px 0;
+  margin: 0 0 8px 0;
   font-weight: bold;
   text-shadow: none;
+  font-family: inherit;
 }
 
 .first-edition-root button {
@@ -79,6 +86,10 @@
   border: 1px solid #767676;
   border-radius: 3px;
   font-size: 14px;
+  font-family: inherit;
+  box-shadow: none;
+  text-shadow: none;
+  letter-spacing: normal;
 }
 
 .first-edition-root button:hover {
@@ -87,16 +98,26 @@
 
 .first-edition-root .board {
   border: 2px solid black;
+  border-radius: 0;
   user-select: none;
-  margin: auto;
+  margin: 0 auto;
   grid-area: game;
-  background-color: transparent;
+  background-color: #ffffff;
+  background-image: none;
   box-shadow: none;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  box-sizing: content-box;
 }
 
 .first-edition-root .controls {
   grid-area: controls;
-  padding-left: 16px;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .first-edition-root .controls h2 {
@@ -107,10 +128,18 @@
   background: none;
   border: none;
   padding: 0;
+  font-family: inherit;
+  letter-spacing: normal;
+  text-shadow: none;
 }
 
 .first-edition-root .row {
   display: flex;
+  height: var(--v1-cell-size, 30px);
+  width: fit-content;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .first-edition-root .upcoming {
@@ -121,19 +150,25 @@
   background: none;
   border: none;
   padding: 0;
+  flex-wrap: wrap;
+  max-width: 100%;
 }
 
 .first-edition-root .cell {
-  width: 30px;
-  aspect-ratio: 1;
+  width: var(--v1-cell-size, 30px);
+  height: var(--v1-cell-size, 30px);
   border: 1px solid black;
   box-sizing: border-box;
   border-radius: 0;
   box-shadow: none;
+  transition: none;
+  background-image: none;
+  flex-shrink: 0;
 }
 
 .first-edition-root .cell.hidden {
   visibility: hidden;
+  border-color: transparent;
 }
 
 .first-edition-root .cell.Empty {
@@ -168,15 +203,45 @@
   background-color: rgb(227, 78, 78);
 }
 
-@media (max-width: 600px) {
+/* Responsive adjustment for Mobile and Small Screens */
+@media (max-width: 640px) {
+  .first-edition-root {
+    --v1-cell-size: clamp(14px, 2.5vh, 22px);
+    padding: 10px 8px;
+  }
+
+  .first-edition-root .v1-nav-bar {
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    font-size: 13px;
+  }
+
+  .first-edition-root h1 {
+    font-size: 1.6rem;
+    margin: 0 0 4px 0;
+  }
+
   .first-edition-root .app {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
+    width: 100%;
   }
+
   .first-edition-root .controls {
-    padding-left: 0;
+    align-items: center;
     text-align: center;
+    width: 100%;
+  }
+
+  .first-edition-root .controls h2 {
+    margin-bottom: 6px;
+    font-size: 1.15rem;
+  }
+
+  .first-edition-root .upcoming {
+    justify-content: center;
+    gap: 8px;
   }
 }

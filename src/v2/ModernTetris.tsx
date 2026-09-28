@@ -88,7 +88,8 @@ export function ModernTetris({ onNavigate }: ModernTetrisProps) {
             onClick={() => onNavigate('v1')}
             title="Switch to 1st Edition (V1)"
           >
-            🕹️ 1ST EDITION
+            <span className="btn-text-full">🕹️ 1ST EDITION</span>
+            <span className="btn-text-short">🕹️ V1</span>
           </button>
 
           <button

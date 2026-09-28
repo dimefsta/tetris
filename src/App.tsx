@@ -32,6 +32,11 @@ function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  // Ensure body background cleanly matches the active view
+  useEffect(() => {
+    document.body.style.backgroundColor = currentView === 'v1' ? '#ffffff' : '#080a12';
+  }, [currentView]);
+
   const navigate = (view: AppView) => {
     setCurrentView(view);
     const targetHash = view === 'hub' ? '#/' : `#/${view}`;
