@@ -305,6 +305,24 @@
   font-weight: 700;
 }
 
+/* Card Subtitle */
+.hub-card-subtitle {
+  font-size: 0.88rem;
+  line-height: 1.4;
+  margin: -6px 0 12px 0;
+  color: #94a3b8;
+}
+
+.hub-mode-card.card-v1 .hub-card-subtitle {
+  color: #64748b;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.hub-mode-card.card-v2 .hub-card-subtitle {
+  color: #7dd3fc;
+  font-family: var(--font-ui);
+}
+
 /* Card Mockup Board */
 .hub-board-preview {
   margin: 14px 0;
@@ -482,13 +500,161 @@
   text-decoration: underline;
 }
 
-@media (max-width: 820px) {
+/* ==========================================================================
+   RESPONSIVE DESIGN FOR TABLET & MOBILE VIEWPORTS
+   ========================================================================== */
+
+/* Tablet & Mobile Breakpoint (max-width: 768px) */
+@media (max-width: 768px) {
+  .arcade-hub {
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 16px 14px;
+    border-radius: 0;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  /* Compact Top Bar & Header */
+  .hub-header {
+    padding-top: 4px;
+    padding-bottom: 6px;
+  }
+
+  .hub-top-bar {
+    margin-bottom: 8px;
+  }
+
+  .hub-system-pill {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+    letter-spacing: 1px;
+  }
+
+  .hub-audio-btn {
+    padding: 4px 10px;
+    font-size: 0.8rem;
+  }
+
+  .hub-title-group {
+    margin-top: 4px;
+  }
+
+  .hub-main-title {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    letter-spacing: 2px;
+  }
+
+  .hub-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    margin-top: 4px;
+  }
+
+  /* Compact Card Layout */
+  .hub-modes-container {
+    padding: 4px 0;
+  }
+
+  .hub-mode-card {
+    padding: 14px 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .hub-mode-card:hover {
+    transform: none; /* Disable shift on touch screens */
+  }
+
+  .hub-card-header {
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .hub-card-icon {
+    font-size: 1.4rem;
+  }
+
+  .hub-card-title {
+    font-size: 1.15rem;
+  }
+
+  .hub-card-badge {
+    font-size: 0.62rem;
+    padding: 3px 8px;
+  }
+
+  .hub-card-subtitle {
+    font-size: 0.82rem;
+    margin: 2px 0 10px 0;
+    line-height: 1.35;
+  }
+
+  /* Remove long descriptive paragraphs, bullet point lists, previews, and hotkey hints */
+  .hub-board-preview,
+  .hub-card-desc,
+  .hub-card-features,
+  .hub-hotkey-hint {
+    display: none !important;
+  }
+
+  /* Compact Action Buttons */
+  .hub-card-actions {
+    margin-top: 4px;
+  }
+
+  .hub-launch-btn {
+    padding: 12px 14px;
+    font-size: 0.88rem;
+    letter-spacing: 1px;
+  }
+
+  /* Compact Footer */
+  .hub-footer {
+    margin-top: auto;
+    padding-top: 10px;
+    font-size: 0.75rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+  }
+
+  .hub-footer div:first-child {
+    display: none; /* Hide desktop keyboard hints on mobile devices */
+  }
+}
+
+/* Phones (< 600px): Clean Vertical Stack */
+@media (max-width: 600px) {
   .hub-modes-container {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 12px;
   }
+}
+
+/* Small Tablets / Large Phones (601px - 768px): 2 Columns */
+@media (min-width: 601px) and (max-width: 768px) {
+  .hub-modes-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+}
+
+/* Very Small Phones (<= 360px) */
+@media (max-width: 360px) {
   .arcade-hub {
-    min-height: auto;
-    border-radius: 0;
+    padding: 10px 8px;
+  }
+  .hub-main-title {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+  }
+  .hub-card-title {
+    font-size: 1.05rem;
+  }
+  .hub-mode-card {
+    padding: 12px 12px;
   }
 }

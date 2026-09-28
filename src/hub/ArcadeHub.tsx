@@ -103,6 +103,10 @@ export function ArcadeHub({ onSelectMode, isMuted, onToggleSound }: ArcadeHubPro
               <span className="hub-card-badge">RAW &amp; UNSTYLED</span>
             </div>
 
+            <p className="hub-card-subtitle">
+              Classic minimalist 1984 retro edition
+            </p>
+
             {/* Plain unstyled mockup of original 1st edition board */}
             <div className="hub-board-preview preview-v1">
               <div className="mini-preview-grid">
@@ -182,6 +186,10 @@ export function ArcadeHub({ onSelectMode, isMuted, onToggleSound }: ArcadeHubPro
               <span className="hub-card-badge">EDITION V2</span>
             </div>
 
+            <p className="hub-card-subtitle">
+              Cyber neon shaders, 8-bit audio &amp; tactical hold
+            </p>
+
             {/* Mini preview mockup of modern neon board */}
             <div className="hub-board-preview preview-v2">
               <div className="mini-preview-grid">
@@ -237,7 +245,7 @@ export function ArcadeHub({ onSelectMode, isMuted, onToggleSound }: ArcadeHubPro
 
           <div className="hub-card-actions">
             <button className="hub-launch-btn">
-              LAUNCH MODERN V2 ⚡
+              PLAY MODERN V2 ⚡
             </button>
             <span className="hub-hotkey-hint">Press <kbd>2</kbd> to launch</span>
           </div>
