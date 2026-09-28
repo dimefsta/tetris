@@ -591,11 +591,12 @@
     line-height: 1.35;
   }
 
-  /* Remove long descriptive paragraphs, bullet point lists, previews, and hotkey hints */
+  /* Remove long descriptive paragraphs, bullet point lists, previews, badges, and hotkey hints */
   .hub-board-preview,
   .hub-card-desc,
   .hub-card-features,
-  .hub-hotkey-hint {
+  .hub-hotkey-hint,
+  .hub-card-badge {
     display: none !important;
   }
 
